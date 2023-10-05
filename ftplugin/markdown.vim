@@ -127,24 +127,24 @@ function! s:GetHeaderList()
         let l:l1 = getline(i+1)
         let l:line = substitute(l:lineraw, "#", "\\\#", "g")
         " exclude lines in fenced code blocks
-        if l:line =~ '````*' || l:line =~ '\~\~\~\~*'
-            if l:fenced_block == 0
-                let l:fenced_block = 1
-            elseif l:fenced_block == 1
-                let l:fenced_block = 0
-            endif
+        " if l:line =~ '````*' || l:line =~ '\~\~\~\~*'
+        "     if l:fenced_block == 0
+        "         let l:fenced_block = 1
+        "     elseif l:fenced_block == 1
+        "         let l:fenced_block = 0
+        "     endif
         " exclude lines in frontmatters
-        elseif l:vim_markdown_frontmatter == 1
-            if l:front_matter == 1
-                if l:line == '---'
-                    let l:front_matter = 0
-                endif
-            elseif i == 1
-                if l:line == '---'
-                    let l:front_matter = 1
-                endif
-            endif
-        endif
+        " elseif l:vim_markdown_frontmatter == 1
+        "     if l:front_matter == 1
+        "         if l:line == '---'
+        "             let l:front_matter = 0
+        "         endif
+        "     elseif i == 1
+        "         if l:line == '---'
+        "             let l:front_matter = 1
+        "         endif
+        "     endif
+        " endif
         " match line against header regex
         if join(getline(i, i + 1), "\n") =~ s:headersRegexp && l:line =~ '^\S'
             let l:is_header = 1
