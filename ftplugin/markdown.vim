@@ -745,16 +745,16 @@ augroup Mkd
     autocmd CursorHold,CursorHoldI <buffer> call s:MarkdownRefreshSyntax(0)
 augroup END
 
-function! Foldtext_markdown()
-    let line = getline(v:foldstart)
-    return line . ' ...' .  repeat(" ", winwidth(0))
-endfunction
+" function! Foldtext_markdown()
+"     let line = getline(v:foldstart)
+"     return line . ' ...' .  repeat(" ", winwidth(0))
+" endfunction
 
 setlocal comments=b:> " blockquote
 setlocal formatoptions+=r " auto-insert > on newline
 setlocal conceallevel=2
 setlocal viewoptions=folds,cursor
-setlocal foldtext=Foldtext_markdown()
+" setlocal foldtext=Foldtext_markdown()
 setlocal foldopen-=undo
 
 function! s:Map(lhs,rhs)
@@ -778,7 +778,7 @@ call <sid>Map('<Plug>Markdown_MoveToPreviousSiblingHeader', '<sid>MoveToPrevious
 call <sid>Map('<Plug>Markdown_MoveToParentHeader', '<sid>MoveToParentHeader')
 call <sid>Map('<Plug>Markdown_MoveToCurHeader', '<sid>MoveToCurHeader')
 call <sid>Map('<Plug>Markdown_Checkbox', 'v:lua.require("markdown").toggle_checkbox')
-call <sid>Map('<Plug>Markdown_Fold', 'v:lua.require("markdown").fold')
+" call <sid>Map('<Plug>Markdown_Fold', 'v:lua.require("markdown").fold')
 call <sid>Map('<Plug>Markdown_Jump', 'v:lua.require("markdown").jump')
 call <sid>Map('<Plug>Markdown_CreateLink', 'v:lua.require("markdown").create_link')
 call <sid>Map('<Plug>Markdown_FollowLink', 'v:lua.require("markdown").follow_link')
@@ -793,7 +793,7 @@ if !get(g:, 'vim_markdown_no_default_key_mappings', 0)
     call <sid>MapNotHasMapTo(']u', 'Markdown_MoveToParentHeader', 'nv')
     call <sid>MapNotHasMapTo(']c', 'Markdown_MoveToCurHeader', 'nv')
     call <sid>MapNotHasMapTo('<C-c>', 'Markdown_Checkbox', 'n')
-    call <sid>MapNotHasMapTo('<TAB>', 'Markdown_Fold', 'n')
+    " call <sid>MapNotHasMapTo('<TAB>', 'Markdown_Fold', 'n')
     call <sid>MapNotHasMapTo('<TAB>', 'Markdown_Jump', 'i')
     call <sid>MapNotHasMapTo('<C-k>', 'Markdown_CreateLink', 'vi')
     call <sid>MapNotHasMapTo('<CR>', 'Markdown_FollowLink', 'n')
