@@ -124,7 +124,6 @@ JSON syntax highlight requires [vim-json](https://github.com/elzr/vim-json).
    - `]c`: Go to Current header. `<Plug>Markdown_MoveToCurHeader`
    - `]u`: Go to parent header (Up). `<Plug>Markdown_MoveToParentHeader`
    - `Ctrl-c`: Toggle checkboxes. `<Plug>Markdown_Checkbox`
-   - `Tab`: Fold headers/lists. `<Plug>Markdown_Fold`
    - `Return`: Follow links. `<Plug>Markdown_FollowLink`
 #### Insert mode
    - `Tab`: Indent new bullets, jump through empty fields in links. `<Plug>Markdown_Jump`
