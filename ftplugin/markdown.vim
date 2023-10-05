@@ -652,10 +652,10 @@ function! s:MarkdownHighlightSources(force)
     " Syntax highlight source code embedded in notes.
     " Look for code blocks in the current file
     let filetypes = {}
-    for line in getline(1, '$')
-        let ft = matchstr(line, '```\s*\zs[0-9A-Za-z_+-]*\ze.*')
-        if !empty(ft) && ft !~ '^\d*$' | let filetypes[ft] = 1 | endif
-    endfor
+    " for line in getline(1, '$')
+    "     let ft = matchstr(line, '```\s*\zs[0-9A-Za-z_+-]*\ze.*')
+    "     if !empty(ft) && ft !~ '^\d*$' | let filetypes[ft] = 1 | endif
+    " endfor
     if !exists('b:mkd_known_filetypes')
         let b:mkd_known_filetypes = {}
     endif
@@ -684,9 +684,9 @@ function! s:MarkdownHighlightSources(force)
             else
                 let include = '@' . toupper(filetype)
             endif
-            let command = 'syntax region %s matchgroup=%s start="^\s*```\s*%s.*$" matchgroup=%s end="\s*```$" keepend contains=%s'
-            execute printf(command, group, startgroup, ft, endgroup, include)
-            execute printf('syntax cluster mkdNonListItem add=%s', group)
+            " let command = 'syntax region %s matchgroup=%s start="^\s*```\s*%s.*$" matchgroup=%s end="\s*```$" keepend contains=%s'
+            " execute printf(command, group, startgroup, ft, endgroup, include)
+            " execute printf('syntax cluster mkdNonListItem add=%s', group)
 
             let b:mkd_known_filetypes[ft] = 1
         endif
