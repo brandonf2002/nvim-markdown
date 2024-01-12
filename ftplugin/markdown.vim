@@ -750,9 +750,7 @@ function! Foldtext_markdown()
     return line . ' ...' .  repeat(" ", winwidth(0))
 endfunction
 
-setlocal comments=b:> " blockquote
 setlocal formatoptions+=r " auto-insert > on newline
-setlocal conceallevel=2
 setlocal viewoptions=folds,cursor
 setlocal foldtext=Foldtext_markdown()
 setlocal foldopen-=undo
